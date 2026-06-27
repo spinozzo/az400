@@ -1,0 +1,9 @@
+trigger:
+  - main # Runs pipeline when code is commited to main branch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: echo "Hello world, Azure DevOps Pipeline is running!
+    displayName: "Run a simple script"
