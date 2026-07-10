@@ -1,6 +1,11 @@
 trigger:
-  - main # Runs pipeline when code is commited to main branch
-
+  branches:
+    include:
+      - main # Runs pipeline when code is commited to main branch
+  paths:
+    include:
+      - lab/**
+    
 pool:
   vmImage: 'ubuntu-latest'
 
