@@ -1,4 +1,4 @@
-name: az400github
+name: az400-$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
   branches:
