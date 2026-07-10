@@ -1,3 +1,5 @@
+name: az400github
+
 trigger:
   branches:
     include:
@@ -5,9 +7,9 @@ trigger:
   paths:
     include:
       - lab/**
-    
+
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 steps:
   - script: echo "Hello world, Azure DevOps Pipeline is running!"
