@@ -1,0 +1,25 @@
+trigger:
+- main
+
+stages:
+- stage: DeployGreen
+  jobs:
+  - job: DeployGreenEnv
+    steps:
+    - script: echo "Deploying to Green environment..."
+    - script: echo "Running health checks..."
+      continueOnError: false
+
+- stage: SwitchTraffic
+  condition: succeeded()
+  jobs:
+  - job: RouteTraffic
+    steps:
+    - script: echo "Switching traffic to Green environment."
+
+- stage: Recovery
+  condition: failed()
+  jobs:
+  - job: RouteBack
+    steps:
+    - script: echo "Deployment failed. Routing traffic back to Blue environment."
